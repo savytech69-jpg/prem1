@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0f0f11" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 </head>
@@ -30,12 +30,83 @@
     </div>
   </header>
 
-  <section class="hero" id="top">
-    <div class="hero-bg" role="img" aria-label="Salon luxury interior background"></div>
+  <section class="hero hero--plain" id="top">
+    <div class="hero-bg" role="img" aria-label="Stylish woman with makeup background"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-particles" aria-hidden="true">
+      <div class="particle" style="--i:1;"></div>
+      <div class="particle" style="--i:2;"></div>
+      <div class="particle" style="--i:3;"></div>
+      <div class="particle" style="--i:4;"></div>
+      <div class="particle" style="--i:5;"></div>
+      <div class="particle" style="--i:6;"></div>
+      <div class="particle" style="--i:7;"></div>
+      <div class="particle" style="--i:8;"></div>
+      <div class="particle" style="--i:9;"></div>
+      <div class="particle" style="--i:10;"></div>
+    </div>
+    <div class="hero-rays" aria-hidden="true">
+      <div class="ray ray-1"></div>
+      <div class="ray ray-2"></div>
+      <div class="ray ray-3"></div>
+    </div>
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-lines" aria-hidden="true">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+    </div>
+    <div class="floating-shapes" aria-hidden="true">
+      <div class="shape shape-triangle"></div>
+      <div class="shape shape-square"></div>
+      <div class="shape shape-circle"></div>
+      <div class="shape shape-hexagon"></div>
+      <div class="shape shape-ring"></div>
+    </div>
+    <div class="hero-curves" aria-hidden="true">
+      <svg class="curve-1" viewBox="0 0 1200 400" preserveAspectRatio="none">
+        <path d="M0,200 Q300,50 600,200 T1200,200" fill="none" stroke="url(#curve-gradient-1)" stroke-width="2" opacity="0.4"/>
+        <defs>
+          <linearGradient id="curve-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgba(182,70,255,0);stop-opacity:0" />
+            <stop offset="50%" style="stop-color:rgba(182,70,255,0.8);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(255,63,179,0);stop-opacity:0" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <svg class="curve-2" viewBox="0 0 1200 400" preserveAspectRatio="none">
+        <path d="M0,150 Q400,300 800,150 T1200,150" fill="none" stroke="url(#curve-gradient-2)" stroke-width="2" opacity="0.3"/>
+        <defs>
+          <linearGradient id="curve-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgba(255,63,179,0);stop-opacity:0" />
+            <stop offset="50%" style="stop-color:rgba(255,63,179,0.6);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(182,70,255,0);stop-opacity:0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="noise-texture" aria-hidden="true"></div>
     <div class="container content" data-animate>
-      <h1>Luxury. Wellness. Artistry.</h1>
+      <h1 class="hero-title-modern">
+        <span class="word-wrapper">
+          <span class="word" data-word="1">Luxury</span>
+          <span class="word-dot">.</span>
+        </span>
+        <span class="word-wrapper">
+          <span class="word" data-word="2">Wellness</span>
+          <span class="word-dot">.</span>
+        </span>
+        <span class="word-wrapper">
+          <span class="word" data-word="3">Artistry</span>
+          <span class="word-dot">.</span>
+        </span>
+      </h1>
       <p class="lede">Indulge in a curated beauty & relaxation experience. From precision hair design to rejuvenating skin rituals and elegant makeup artistry—crafted for every generation.</p>
-      <div class="flex" style="gap:1rem; flex-wrap:wrap;">
+      <div class="flex" style="gap:1rem; flex-wrap:wrap; margin-bottom:30px; position:relative; z-index:3;">
         <a class="btn" href="services.html">Explore Services</a>
         <a class="btn outline" href="contact.html">Book Appointment</a>
         <a class="btn whatsapp-connect" href="https://wa.me/9999" target="_blank" rel="noopener" aria-label="Connect with us on WhatsApp">
@@ -56,6 +127,7 @@
         </a>
       </div>
     </div>
+    <div class="hero-bottom-fade" aria-hidden="true"></div>
   </section>
 
   <main>

@@ -98,5 +98,47 @@
       }
     });
   }
+
+  // Parallax Effect on Hero Background
+  const hero = qs('.hero');
+  const heroBg = qs('.hero-bg');
+  if (hero && heroBg) {
+    let ticking = false;
+    hero.addEventListener('mousemove', e => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20; // max ±10px
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+          heroBg.style.transform = `scale(1.08) translate(${x}px, ${y}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    
+    hero.addEventListener('mouseleave', () => {
+      heroBg.style.transform = '';
+    });
+
+    // Smooth scroll-based parallax
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const parallaxOffset = scrollY * 0.3; // 30% speed
+          if (heroBg) {
+            heroBg.style.transform = `scale(1.08) translateY(${parallaxOffset}px)`;
+          }
+          lastScrollY = scrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
 })();
 
