@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & Booking | Premier Family Salon & Hair Spa</title>
+  <meta name="description" content="Book appointments or inquire about services at Premier Family Salon & Hair Spa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Premier Family Salon Home">
+        <img src="assets/img/logo-light.png" alt="Premier Family Salon & Hair Spa Logo" width="120" height="48" loading="eager" />
+      </a>
+      <nav aria-label="Main Navigation">
+        <button class="mobile-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Menu">☰</button>
+        <ul id="primary-menu" class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero" aria-labelledby="contact-hero-heading">
+      <div class="contact-hero-bg" aria-hidden="true"></div>
+      <div class="contact-hero-overlay" aria-hidden="true"></div>
+      <div class="container contact-hero-inner" data-animate>
+        <h1 id="contact-hero-heading">Book & Inquire</h1>
+        <p class="hero-sub">Reserve time or ask a quick question. Our team responds promptly to confirm or guide your selection.</p>
+        <div class="contact-actions">
+          <a class="btn" href="tel:+10000000000" aria-label="Call the salon">Call</a>
+          <a class="btn outline" href="mailto:info@premiersalon.example" aria-label="Email the salon">Email</a>
+          <a class="btn whatsapp-connect" href="https://wa.me/9999?text=Hi%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><span class="wa-icon" aria-hidden="true">💬</span> WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="container contact-grid" data-animate>
+        <div class="contact-info">
+          <h2>Direct Contact</h2>
+          <ul class="contact-list" aria-label="Salon direct contact details">
+            <li><span class="ci-label">Phone</span><a href="tel:+10000000000" aria-label="Call +1 000 000 0000">+1 (000) 000‑0000</a></li>
+            <li><span class="ci-label">Email</span><a href="mailto:info@premiersalon.example" aria-label="Email info@premiersalon.example">info@premiersalon.example</a></li>
+            <li><span class="ci-label">WhatsApp</span><a href="https://wa.me/9999?text=Hi%20I%20have%20a%20question" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">Message Now</a></li>
+            <li><span class="ci-label">Location</span><span>123 Wellness Avenue, City, Country</span></li>
+          </ul>
+          <div class="contact-actions">
+            <a class="btn" href="tel:+10000000000">Call</a>
+            <a class="btn outline" href="mailto:info@premiersalon.example">Email</a>
+            <a class="btn whatsapp-connect" href="https://wa.me/9999?text=Hi%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><span class="wa-icon" aria-hidden="true">💬</span> WhatsApp</a>
+          </div>
+        </div>
+        <div>
+        <span class="badge">Booking</span>
+        <h2 class="section-title">Appointment Request</h2>
+        <p class="section-lede">Submit your preferred service and timing. A team member will follow up to finalize details.</p>
+        <form action="booking.php" method="POST" data-booking novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. +1 555 123 4567" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="service">Desired Service</label>
+              <select id="service" name="service" required>
+                <option value="">Select...</option>
+                <option>Signature Haircut</option>
+                <option>Hair Spa Treatment</option>
+                <option>Balayage / Color</option>
+                <option>Keratin Smooth</option>
+                <option>Facial Therapy</option>
+                <option>Makeup / Bridal</option>
+                <option>Manicure / Pedicure</option>
+                <option>Consultation</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="appointment_date">Preferred Date</label>
+              <input id="appointment_date" name="appointment_date" type="date" required />
+            </div>
+            <div class="form-field">
+              <label for="appointment_time">Preferred Time</label>
+              <input id="appointment_time" name="appointment_time" type="time" required />
+            </div>
+            <div class="form-field" style="grid-column:1/-1;">
+              <label for="message">Notes / Goals</label>
+              <textarea id="message" name="message" placeholder="Share any hair/skin goals or special requests..."></textarea>
+            </div>
+            <!-- Honeypot anti-spam -->
+            <div class="form-field" style="display:none;">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+          </div>
+          <p class="form-note">By submitting you consent to being contacted about this request. This form does not guarantee appointment until confirmed.</p>
+          <button class="btn" type="submit">Request Booking</button>
+        </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-accent-fade" id="location">
+      <div class="container" data-animate>
+        <span class="badge">Visit</span>
+        <h2 class="section-title">Location & Hours</h2>
+        <p class="section-lede">123 Wellness Avenue, City, Country</p>
+        <div style="border:1px solid var(--clr-border); border-radius:16px; overflow:hidden; aspect-ratio: 16/6; background:#141416; display:flex; align-items:center; justify-content:center; color:var(--clr-text-muted); font-size:.85rem;">
+          Map Embed / Static Image Placeholder
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="margin-top:0">A modern multi-generational salon & spa focused on refined comfort and true care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#top">Back to Top</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+10000000000">+1 (000) 000‑0000</a></li>
+          <li><a href="mailto:info@premiersalon.example">info@premiersalon.example</a></li>
+          <li>123 Wellness Avenue,<br/>City, Country</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon–Fri: 9:00 – 19:00</li>
+          <li>Sat: 9:00 – 17:00</li>
+          <li>Sun: By Appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container divider" aria-hidden="true"></div>
+    <div class="container">
+      <p class="copyright">© <span id="year"></span> Premier Family Salon & Hair Spa. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/main.js" defer></script>
+  <a href="https://wa.me/9999" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="wa-ico" aria-hidden="true">🟢</span>
+  </a>
+</body>
+</html>

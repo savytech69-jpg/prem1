@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products | Premier Family Salon & Hair Spa</title>
+  <meta name="description" content="Premium salon-grade product lines coming soon to Premier Family Salon & Hair Spa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Premier Family Salon Home">
+        <img src="assets/img/logo-light.png" alt="Premier Family Salon & Hair Spa Logo" width="120" height="48" loading="eager" />
+      </a>
+      <nav aria-label="Main Navigation">
+        <button class="mobile-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Menu">☰</button>
+        <ul id="primary-menu" class="nav-links">
+          <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a class="active" href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="products-hero" aria-labelledby="products-hero-heading">
+      <div class="products-hero-bg" aria-hidden="true"></div>
+      <div class="products-hero-overlay" aria-hidden="true"></div>
+      <div class="container products-hero-inner" data-animate>
+        <div class="hero-copy">
+          <h1 id="products-hero-heading">Product Lines</h1>
+          <p class="hero-sub">Performance formulations curated for scalp integrity, dermal glow & lasting finish. Early catalog preview below.</p>
+          <div class="catalog-tools" aria-label="Catalog utilities">
+            <div class="tool-group">
+              <label for="catalog-search" class="visually-hidden">Search products</label>
+              <input id="catalog-search" type="search" placeholder="Search…" aria-label="Search products" />
+            </div>
+            <div class="tool-group tags" aria-label="Filter by domain">
+              <button type="button" class="tag-btn active" data-tag="all">All</button>
+              <button type="button" class="tag-btn" data-tag="hair">Hair</button>
+              <button type="button" class="tag-btn" data-tag="skin">Skin</button>
+              <button type="button" class="tag-btn" data-tag="scalp">Scalp</button>
+              <button type="button" class="tag-btn" data-tag="nails">Nails</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coming-soon">
+      <div class="container" data-animate>
+        <span class="badge">Preview</span>
+        <h2 class="section-title">Coming Soon</h2>
+        <p class="section-lede">A carefully selected range of salon-grade essentials, treatment enhancers, and home-care maintenance solutions. This placeholder will evolve into a browsable catalog with filtering & product detail modals.</p>
+        <div class="catalog-grid" role="list" aria-label="Preview product list">
+          <article class="product-card" role="listitem" data-tag="hair" data-animate>
+            <div class="media" style="--img:url('https://images.pexels.com/photos/3738342/pexels-photo-3738342.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="card-body">
+              <span class="domain">Hair Care</span>
+              <h3 class="title">Hydration Repair Mask</h3>
+              <p class="excerpt">Reconstructive moisture infusion for stressed strands.</p>
+              <button type="button" class="mini-act" aria-label="View details for Hydration Repair Mask">Details</button>
+            </div>
+          </article>
+          <article class="product-card" role="listitem" data-tag="hair" data-animate>
+            <div class="media" style="--img:url('https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="card-body">
+              <span class="domain">Hair Care</span>
+              <h3 class="title">Strength Bond Serum</h3>
+              <p class="excerpt">Peptide + keratin support for daily resilience.</p>
+              <button type="button" class="mini-act" aria-label="View details for Strength Bond Serum">Details</button>
+            </div>
+          </article>
+          <article class="product-card" role="listitem" data-tag="skin" data-animate>
+            <div class="media" style="--img:url('https://images.pexels.com/photos/5938248/pexels-photo-5938248.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="card-body">
+              <span class="domain">Skin Care</span>
+              <h3 class="title">Glow Renewal Enzyme</h3>
+              <p class="excerpt">Gentle powder-to-foam resurfacing ritual.</p>
+              <button type="button" class="mini-act" aria-label="View details for Glow Renewal Enzyme">Details</button>
+            </div>
+          </article>
+          <article class="product-card" role="listitem" data-tag="scalp" data-animate>
+            <div class="media" style="--img:url('https://images.pexels.com/photos/6621469/pexels-photo-6621469.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="card-body">
+              <span class="domain">Scalp</span>
+              <h3 class="title">Daily Scalp Toner</h3>
+              <p class="excerpt">Microcirculation botanical complex refresh.</p>
+              <button type="button" class="mini-act" aria-label="View details for Daily Scalp Toner">Details</button>
+            </div>
+          </article>
+          <article class="product-card" role="listitem" data-tag="skin" data-animate>
+            <div class="media" style="--img:url('https://images.pexels.com/photos/5938245/pexels-photo-5938245.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="card-body">
+              <span class="domain">Skin Care</span>
+              <h3 class="title">Lipid Barrier Cream</h3>
+              <p class="excerpt">Ceramide-forward replenishment & calm.</p>
+              <button type="button" class="mini-act" aria-label="View details for Lipid Barrier Cream">Details</button>
+            </div>
+          </article>
+          <article class="product-card" role="listitem" data-tag="nails" data-animate>
+            <div class="media" style="--img:url('https://images.pexels.com/photos/6621524/pexels-photo-6621524.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="card-body">
+              <span class="domain">Nail Care</span>
+              <h3 class="title">Nourish Cuticle Oil</h3>
+              <p class="excerpt">Vitamin-rich micro-drop conditioning treatment.</p>
+              <button type="button" class="mini-act" aria-label="View details for Nourish Cuticle Oil">Details</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center" aria-label="Call to Action">
+      <div class="container" data-animate>
+        <h2 class="section-title">Want Early Access?</h2>
+        <p class="section-lede mw-small">Join our in‑store list to be notified when retail launches. Ask during your next visit.</p>
+        <a class="btn" href="contact.html">Book a Service</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="margin-top:0">A modern multi-generational salon & spa focused on refined comfort and true care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#top">Back to Top</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+10000000000">+1 (000) 000‑0000</a></li>
+          <li><a href="mailto:info@premiersalon.example">info@premiersalon.example</a></li>
+          <li>123 Wellness Avenue,<br/>City, Country</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon–Fri: 9:00 – 19:00</li>
+          <li>Sat: 9:00 – 17:00</li>
+          <li>Sun: By Appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container divider" aria-hidden="true"></div>
+    <div class="container">
+      <p class="copyright">© <span id="year"></span> Premier Family Salon & Hair Spa. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/main.js" defer></script>
+  <a href="https://wa.me/9999" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="wa-ico" aria-hidden="true">🟢</span>
+  </a>
+</body>
+</html>
