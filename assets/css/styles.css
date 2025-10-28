@@ -123,10 +123,12 @@ p { margin: 0 0 1.2em; }
 .contact-actions .btn { font-size:.8rem; }
 @media (max-width:980px){ .contact-grid { grid-template-columns:1fr; } }
 
-.whatsapp-fab { position: fixed; bottom: 20px; right: 20px; width: 54px; height: 54px; background:#25D366; color:#fff; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; font-size:28px; box-shadow: 0 6px 24px -6px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08); z-index: 200; transition: transform .3s ease, box-shadow .3s ease; }
-.whatsapp-fab:hover, .whatsapp-fab:focus-visible { transform: translateY(-4px); box-shadow: 0 12px 34px -8px rgba(0,0,0,.65), 0 0 0 2px rgba(37,211,102,.5); }
-.whatsapp-fab .wa-ico { display:block; }
-@media (max-width: 640px) { .whatsapp-fab { width:50px; height:50px; font-size:26px; bottom:16px; right:16px; } }
+.whatsapp-fab { position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px; background:#161618; color:#fff; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; box-shadow: 0 6px 22px -6px rgba(0,0,0,.65); z-index: 200; transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1); isolation:isolate; }
+.whatsapp-fab::before { content:''; position:absolute; inset:0; padding:2px; border-radius:inherit; background: linear-gradient(135deg,var(--clr-accent),#e9c9a6); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none; }
+.whatsapp-fab .fab-icon { width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center; }
+.whatsapp-fab .fab-icon svg { display:block; width:100%; height:100%; }
+.whatsapp-fab:hover, .whatsapp-fab:focus-visible { transform: translateY(-5px); box-shadow: 0 14px 34px -10px rgba(0,0,0,.7), 0 0 0 2px rgba(var(--clr-accent-rgb), .4); }
+@media (max-width: 640px) { .whatsapp-fab { width:52px; height:52px; bottom:16px; right:16px; } .whatsapp-fab .fab-icon { width:26px; height:26px; } }
 
 /* Sections */
 .section { padding: clamp(3.5rem, 8vh, 5.5rem) 0; position: relative; }
