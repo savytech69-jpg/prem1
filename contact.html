@@ -32,108 +32,206 @@
   </header>
 
   <main>
-    <section class="contact-hero" aria-labelledby="contact-hero-heading">
-      <div class="contact-hero-bg" aria-hidden="true" style="background-image:url('https://images.pexels.com/photos/7130480/pexels-photo-7130480.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
-      <div class="contact-hero-overlay" aria-hidden="true"></div>
-      <div class="container contact-hero-inner" data-animate>
-        <h1 id="contact-hero-heading">Book & Inquire</h1>
-        <p class="hero-sub">Reserve time or ask a quick question. Our team responds promptly to confirm or guide your selection.</p>
-        <div class="contact-actions">
-          <a class="btn" href="tel:+10000000000" aria-label="Call the salon">Call</a>
-          <a class="btn outline" href="mailto:info@premiersalon.example" aria-label="Email the salon">Email</a>
-          <a class="btn whatsapp-connect" href="https://wa.me/9999?text=Hi%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><span class="wa-icon" aria-hidden="true">💬</span> WhatsApp</a>
+    <section class="contact-hero-modern" aria-labelledby="contact-hero-heading">
+      <div class="hero-bg-image" style="background-image: url('https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-hidden="true"></div>
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="contact-hero-content" data-animate>
+          <span class="badge">Get In Touch</span>
+          <h1 id="contact-hero-heading">Let's Connect</h1>
+          <p class="hero-lead">Book an appointment, ask questions, or discover how we can help you achieve your beauty goals.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="booking">
-      <div class="container contact-grid" data-animate>
-        <div class="contact-info">
-          <h2>Direct Contact</h2>
-          <ul class="contact-list" aria-label="Salon direct contact details">
-            <li><span class="ci-label">Phone</span><a href="tel:+10000000000" aria-label="Call +1 000 000 0000">+1 (000) 000‑0000</a></li>
-            <li><span class="ci-label">Email</span><a href="mailto:info@premiersalon.example" aria-label="Email info@premiersalon.example">info@premiersalon.example</a></li>
-            <li><span class="ci-label">WhatsApp</span><a href="https://wa.me/9999?text=Hi%20I%20have%20a%20question" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">Message Now</a></li>
-            <li><span class="ci-label">Location</span><span>1st Floor, SMS Building, Vattiyoorkavu, P O, Thiruvananthapuram, Kerala 695013</span></li>
-          </ul>
-          <div class="contact-actions">
-            <a class="btn" href="tel:+10000000000">Call</a>
-            <a class="btn outline" href="mailto:info@premiersalon.example">Email</a>
-            <a class="btn whatsapp-connect" href="https://wa.me/9999?text=Hi%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><span class="wa-icon" aria-hidden="true">💬</span> WhatsApp</a>
-          </div>
-        </div>
-        <div>
-        <span class="badge">Booking</span>
-        <h2 class="section-title">Appointment Request</h2>
-        <p class="section-lede">Submit your preferred service and timing. A team member will follow up to finalize details.</p>
-        <form action="booking.php" method="POST" data-booking novalidate>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="name">Full Name</label>
-              <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
+        
+        <div class="contact-quick-actions" data-animate>
+          <a href="tel:+919876543210" class="quick-action-card">
+            <div class="action-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
-            <div class="form-field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. +1 555 123 4567" />
+            <div class="action-content">
+              <h3>Call Us</h3>
+              <p>+91 98765 43210</p>
             </div>
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
-            </div>
-            <div class="form-field">
-              <label for="service">Desired Service</label>
-              <select id="service" name="service" required>
-                <option value="">Select...</option>
-                <option>Signature Haircut</option>
-                <option>Hair Spa Treatment</option>
-                <option>Balayage / Color</option>
-                <option>Keratin Smooth</option>
-                <option>Facial Therapy</option>
-                <option>Makeup / Bridal</option>
-                <option>Manicure / Pedicure</option>
-                <option>Consultation</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="appointment_date">Preferred Date</label>
-              <input id="appointment_date" name="appointment_date" type="date" required />
-            </div>
-            <div class="form-field">
-              <label for="appointment_time">Preferred Time</label>
-              <input id="appointment_time" name="appointment_time" type="time" required />
-            </div>
-            <div class="form-field" style="grid-column:1/-1;">
-              <label for="message">Notes / Goals</label>
-              <textarea id="message" name="message" placeholder="Share any hair/skin goals or special requests..."></textarea>
-            </div>
-            <!-- Honeypot anti-spam -->
-            <div class="form-field" style="display:none;">
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
-            </div>
-          </div>
-          <p class="form-note">By submitting you consent to being contacted about this request. This form does not guarantee appointment until confirmed.</p>
-          <button class="btn" type="submit">Request Booking</button>
-        </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-accent-fade" id="location">
-      <div class="container" data-animate>
-        <span class="badge">Visit</span>
-        <h2 class="section-title">Location & Hours</h2>
-        <p class="section-lede">1st Floor, SMS Building, Vattiyoorkavu, P O, Thiruvananthapuram, Kerala 695013</p>
-        <div style="border:1px solid var(--clr-border); border-radius:16px; overflow:hidden; aspect-ratio: 16/6; background:#141416;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8865741656!2d76.97766!3d8.53111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bec5f7f7f7f7%3A0x1234567890abcdef!2sSMS%20Building%2C%20Vattiyoorkavu!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div style="margin-top: 1.5rem; text-align: center;">
-          <a href="https://maps.app.goo.gl/gMXXYHYUCGBA8A6K9" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
-            </svg>
-            Open in Google Maps
           </a>
+          
+          <a href="mailto:info@premiersalon.com" class="quick-action-card">
+            <div class="action-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="action-content">
+              <h3>Email Us</h3>
+              <p>info@premiersalon.com</p>
+            </div>
+          </a>
+          
+          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="quick-action-card whatsapp-card">
+            <div class="action-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="action-content">
+              <h3>WhatsApp</h3>
+              <p>Quick Response</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main-section">
+      <div class="container">
+        <div class="contact-layout" data-animate>
+          <div class="contact-form-panel">
+            <div class="panel-header">
+              <span class="badge">Book Now</span>
+              <h2>Request Appointment</h2>
+              <p>Fill in your details and we'll confirm your booking within 24 hours</p>
+            </div>
+            
+            <form action="booking.php" method="POST" class="modern-contact-form" data-booking novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name <span class="required">*</span></label>
+                  <input id="name" name="name" type="text" required autocomplete="name" placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 98765 43210" />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="john@example.com" />
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="service">Select Service <span class="required">*</span></label>
+                  <select id="service" name="service" required>
+                    <option value="">Choose a service...</option>
+                    <option>Signature Haircut</option>
+                    <option>Hair Spa Treatment</option>
+                    <option>Balayage / Color</option>
+                    <option>Keratin Smooth</option>
+                    <option>Facial Therapy</option>
+                    <option>Makeup / Bridal</option>
+                    <option>Manicure / Pedicure</option>
+                    <option>Consultation</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="appointment_date">Preferred Date <span class="required">*</span></label>
+                  <input id="appointment_date" name="appointment_date" type="date" required />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="appointment_time">Preferred Time <span class="required">*</span></label>
+                <input id="appointment_time" name="appointment_time" type="time" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Additional Notes</label>
+                <textarea id="message" name="message" rows="4" placeholder="Any specific requirements or questions?"></textarea>
+              </div>
+              
+              <div class="form-field" style="display:none;">
+                <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              
+              <button class="btn btn-primary-large" type="submit">
+                <span>Book Appointment</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              
+              <p class="form-disclaimer">We'll contact you to confirm your appointment. Your information is kept confidential.</p>
+            </form>
+          </div>
+          
+          <div class="contact-info-panel">
+            <div class="info-card">
+              <h3>Contact Information</h3>
+              <div class="info-items">
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="info-label">Phone</p>
+                    <a href="tel:+919876543210" class="info-value">+91 98765 43210</a>
+                  </div>
+                </div>
+                
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="info-label">Email</p>
+                    <a href="mailto:info@premiersalon.com" class="info-value">info@premiersalon.com</a>
+                  </div>
+                </div>
+                
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="info-label">Location</p>
+                    <p class="info-value">SMS Building, Vattiyoorkavu<br/>Thiruvananthapuram, Kerala 695013</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <h3>Business Hours</h3>
+              <div class="hours-list">
+                <div class="hours-item">
+                  <span>Monday – Friday</span>
+                  <span class="hours-time">9:00 AM – 7:00 PM</span>
+                </div>
+                <div class="hours-item">
+                  <span>Saturday</span>
+                  <span class="hours-time">9:00 AM – 6:00 PM</span>
+                </div>
+                <div class="hours-item closed">
+                  <span>Sunday</span>
+                  <span class="hours-time">Closed</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-card map-card">
+              <h3>Find Us</h3>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8865741656!2d76.97766!3d8.53111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bec5f7f7f7f7%3A0x1234567890abcdef!2sSMS%20Building%2C%20Vattiyoorkavu!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <a href="https://maps.app.goo.gl/gMXXYHYUCGBA8A6K9" target="_blank" rel="noopener noreferrer" class="btn btn-map">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
