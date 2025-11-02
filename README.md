@@ -138,7 +138,7 @@ To revert to unique images per section, reintroduce individual hero background r
 - Add Open Graph tags & real contact info before production:
 ```html
 <meta property="og:title" content="Premier Family Salon & Hair Spa" />
-<meta property="og:description" content="Luxury hair, skin, makeup & spa rituals." />
+<meta property="og:description" content="Luxury hair, skin, makeup & hair spa rituals." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://yourdomain.com/" />
 <meta property="og:image" content="https://yourdomain.com/assets/img/og-cover.jpg" />
