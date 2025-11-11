@@ -32,99 +32,66 @@
   </header>
 
   <main>
-    <section class="products-hero" aria-labelledby="products-hero-heading">
-      <div class="products-hero-bg" aria-hidden="true" style="background-image:url('https://images.pexels.com/photos/7130482/pexels-photo-7130482.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
-      <div class="products-hero-overlay" aria-hidden="true"></div>
-      <div class="container products-hero-inner" data-animate>
-        <div class="hero-copy">
-          <h1 id="products-hero-heading">Product Lines</h1>
-          <p class="hero-sub">Performance formulations curated for scalp integrity, dermal glow & lasting finish. Early catalog preview below.</p>
-          <div class="catalog-tools" aria-label="Catalog utilities">
-            <div class="tool-group">
-              <label for="catalog-search" class="visually-hidden">Search products</label>
-              <input id="catalog-search" type="search" placeholder="Search…" aria-label="Search products" />
+    <section class="coming-soon-hero" aria-labelledby="coming-soon-heading">
+      <div class="coming-soon-bg" aria-hidden="true" style="background-image:url('https://images.pexels.com/photos/7130482/pexels-photo-7130482.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+      <div class="coming-soon-overlay" aria-hidden="true"></div>
+      <div class="container coming-soon-content" data-animate>
+        <div class="coming-soon-badge">
+          <span class="badge-icon">🔮</span>
+          <span class="badge-text">LAUNCHING SOON</span>
+        </div>
+        <h1 id="coming-soon-heading" class="coming-soon-title">
+          <span class="title-line" style="font-family: 'Montserrat', sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.9em; background: linear-gradient(90deg, #b646ff 0%, #ff3fb3 50%, #d4a373 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; margin-bottom: 0.5rem;">Premium Product Line</span>
+          <span class="title-main">Coming Soon</span>
+        </h1>
+        <p class="coming-soon-subtitle">We're curating an exclusive collection of professional-grade beauty products — from hair care essentials to skincare treasures. Our premium product line will bring salon-quality results to your home.</p>
+        
+        <div class="coming-soon-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <span class="feature-number">01</span>
             </div>
-            <div class="tool-group tags" aria-label="Filter by domain">
-              <button type="button" class="tag-btn active" data-tag="all">All</button>
-              <button type="button" class="tag-btn" data-tag="hair">Hair</button>
-              <button type="button" class="tag-btn" data-tag="skin">Skin</button>
-              <button type="button" class="tag-btn" data-tag="scalp">Scalp</button>
-              <button type="button" class="tag-btn" data-tag="nails">Nails</button>
+            <div class="feature-content">
+              <h3 class="feature-title">Salon-Grade Formulations</h3>
+              <p class="feature-text">Professional products trusted by our expert stylists</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <span class="feature-number">02</span>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Exclusive Collections</h3>
+              <p class="feature-text">Curated hair, skin & beauty essentials from premium brands</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <span class="feature-number">03</span>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Expert Recommendations</h3>
+              <p class="feature-text">Personalized product guidance from our specialists</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="coming-soon">
-      <div class="container" data-animate>
-        <span class="badge">Preview</span>
-        <h2 class="section-title">Coming Soon</h2>
-        <p class="section-lede">A carefully selected range of salon-grade essentials, treatment enhancers, and home-care maintenance solutions. This placeholder will evolve into a browsable catalog with filtering & product detail modals.</p>
-        <div class="catalog-grid" role="list" aria-label="Preview product list">
-          <article class="product-card" role="listitem" data-tag="hair" data-animate>
-            <div class="media" style="--img:url('https://images.pexels.com/photos/3738342/pexels-photo-3738342.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-            <div class="card-body">
-              <span class="domain">Hair Care</span>
-              <h3 class="title">Hydration Repair Mask</h3>
-              <p class="excerpt">Reconstructive moisture infusion for stressed strands.</p>
-              <button type="button" class="mini-act" aria-label="View details for Hydration Repair Mask">Details</button>
-            </div>
-          </article>
-          <article class="product-card" role="listitem" data-tag="hair" data-animate>
-            <div class="media" style="--img:url('https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-            <div class="card-body">
-              <span class="domain">Hair Care</span>
-              <h3 class="title">Strength Bond Serum</h3>
-              <p class="excerpt">Peptide + keratin support for daily resilience.</p>
-              <button type="button" class="mini-act" aria-label="View details for Strength Bond Serum">Details</button>
-            </div>
-          </article>
-          <article class="product-card" role="listitem" data-tag="skin" data-animate>
-            <div class="media" style="--img:url('https://images.pexels.com/photos/5938248/pexels-photo-5938248.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-            <div class="card-body">
-              <span class="domain">Skin Care</span>
-              <h3 class="title">Glow Renewal Enzyme</h3>
-              <p class="excerpt">Gentle powder-to-foam resurfacing ritual.</p>
-              <button type="button" class="mini-act" aria-label="View details for Glow Renewal Enzyme">Details</button>
-            </div>
-          </article>
-          <article class="product-card" role="listitem" data-tag="scalp" data-animate>
-            <div class="media" style="--img:url('https://images.pexels.com/photos/6621469/pexels-photo-6621469.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-            <div class="card-body">
-              <span class="domain">Scalp</span>
-              <h3 class="title">Daily Scalp Toner</h3>
-              <p class="excerpt">Microcirculation botanical complex refresh.</p>
-              <button type="button" class="mini-act" aria-label="View details for Daily Scalp Toner">Details</button>
-            </div>
-          </article>
-          <article class="product-card" role="listitem" data-tag="skin" data-animate>
-            <div class="media" style="--img:url('https://images.pexels.com/photos/5938245/pexels-photo-5938245.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-            <div class="card-body">
-              <span class="domain">Skin Care</span>
-              <h3 class="title">Lipid Barrier Cream</h3>
-              <p class="excerpt">Ceramide-forward replenishment & calm.</p>
-              <button type="button" class="mini-act" aria-label="View details for Lipid Barrier Cream">Details</button>
-            </div>
-          </article>
-          <article class="product-card" role="listitem" data-tag="nails" data-animate>
-            <div class="media" style="--img:url('https://images.pexels.com/photos/6621524/pexels-photo-6621524.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-            <div class="card-body">
-              <span class="domain">Nail Care</span>
-              <h3 class="title">Nourish Cuticle Oil</h3>
-              <p class="excerpt">Vitamin-rich micro-drop conditioning treatment.</p>
-              <button type="button" class="mini-act" aria-label="View details for Nourish Cuticle Oil">Details</button>
-            </div>
-          </article>
+        <div class="coming-soon-notify">
+          <p class="notify-label">Want to be the first to know?</p>
+          <div class="notify-actions">
+            <a class="btn btn-primary" href="contact.html">Get Notified</a>
+            <a class="btn btn-secondary" href="services.html">Explore Services</a>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section center" aria-label="Call to Action">
-      <div class="container" data-animate>
-        <h2 class="section-title">Want Early Access?</h2>
-        <p class="section-lede mw-small">Join our in‑store list to be notified when retail launches. Ask during your next visit.</p>
-        <a class="btn" href="contact.html">Book a Service</a>
+        <div class="coming-soon-timeline">
+          <p class="timeline-text">
+            <span class="timeline-icon">⏳</span>
+            Expected Launch: <strong>Q1 2026</strong>
+          </p>
+        </div>
       </div>
     </section>
   </main>
