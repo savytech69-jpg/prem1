@@ -1,11 +1,11 @@
 <?php
-// Basic booking handler for cPanel (PHP 7+). Adjust mail settings as needed.
-// NOTE: For production harden with CAPTCHA, rate limiting, server-side logging, and input length constraints.
+// Enhanced booking and career application handler with email functionality
+// Handles both service bookings and career applications
 
 // Configuration
-$TO_EMAIL = 'info@premiersalon.example'; // Change to real destination
-$SUBJECT_PREFIX = 'Salon Booking Request: ';
-$ALLOW_ORIGINS = ['https://example.com','http://localhost']; // Adjust if using fetch() CORS in future
+$TO_EMAIL = 'savytech69@gmail.com';
+$FROM_EMAIL = 'noreply@premiersalon.com';
+$FROM_NAME = 'Premier Family Salon';
 
 // Helpers
 function respond_json($status, $message, $extra = []) {
@@ -15,97 +15,168 @@ function respond_json($status, $message, $extra = []) {
 }
 
 function sanitize($val) {
-    return trim(filter_var($val, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
+    return trim(htmlspecialchars($val, ENT_QUOTES, 'UTF-8'));
 }
 
-// Simple spam / method checks
+function validate_email($email) {
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function validate_phone($phone) {
+    // Indian phone number validation
+    $phone = preg_replace('/[^0-9+]/', '', $phone);
+    return preg_match('/^(\+91)?[6-9]\d{9}$/', $phone);
+}
+
+// Check request method
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo 'Method Not Allowed';
-    exit;
+    respond_json('error', 'Method Not Allowed');
 }
 
-// Honeypot
+// Honeypot check
 if (!empty($_POST['company'])) {
-    // Silent discard
     http_response_code(204);
     exit;
 }
 
-$name = sanitize($_POST['name'] ?? '');
-$phone = sanitize($_POST['phone'] ?? '');
-$email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL) ? $_POST['email'] : '';
-$service = sanitize($_POST['service'] ?? '');
-$appointment_date = sanitize($_POST['appointment_date'] ?? '');
-$appointment_time = sanitize($_POST['appointment_time'] ?? '');
-$message = sanitize($_POST['message'] ?? '');
-$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$ua = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+// Determine form type
+$form_type = sanitize($_POST['form_type'] ?? 'booking');
 
-$errors = [];
-if (strlen($name) < 2) $errors[] = 'Name is required.';
-if (!$email) $errors[] = 'Valid email required.';
-if (!preg_match('/[0-9\-+() ]{7,}/', $phone)) $errors[] = 'Phone invalid.';
-if ($service === '') $errors[] = 'Service required.';
-if ($appointment_date === '') $errors[] = 'Date required.';
-if ($appointment_time === '') $errors[] = 'Time required.';
+if ($form_type === 'career_application') {
+    // Career Application Form
+    $name = sanitize($_POST['name'] ?? '');
+    $phone = sanitize($_POST['phone'] ?? '');
+    $email = sanitize($_POST['email'] ?? '');
+    $age = sanitize($_POST['age'] ?? '');
+    $education = sanitize($_POST['education'] ?? '');
+    $program = sanitize($_POST['program'] ?? '');
+    $batch = sanitize($_POST['batch'] ?? '');
+    $message = sanitize($_POST['message'] ?? '');
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $timestamp = date('Y-m-d H:i:s');
 
-// Basic date sanity (not in the past)
-if ($appointment_date) {
-    $today = new DateTime('today');
-    $d = DateTime::createFromFormat('Y-m-d', $appointment_date);
-    if (!$d) {
-        $errors[] = 'Date format invalid.';
-    } elseif ($d < $today) {
-        $errors[] = 'Date must be today or later.';
+    // Validation
+    $errors = [];
+    if (strlen($name) < 2) $errors[] = 'Full name is required (minimum 2 characters).';
+    if (!validate_email($email)) $errors[] = 'Valid email address is required.';
+    if (!validate_phone($phone)) $errors[] = 'Valid phone number is required.';
+    if (empty($program)) $errors[] = 'Please select a program.';
+
+        // Validation
+    $errors = [];
+    if (strlen($name) < 2) $errors[] = 'Name is required (minimum 2 characters).';
+    if (!validate_email($email)) $errors[] = 'Valid email address is required.';
+    if (!validate_phone($phone)) $errors[] = 'Valid phone number is required.';
+    if (empty($service)) $errors[] = 'Please select a service.';
+    if (empty($appointment_date)) $errors[] = 'Appointment date is required.';
+
+    if (!empty($errors)) {
+        respond_json('error', implode(' ', $errors));
     }
+
+    // Prepare email content for booking
+    $email_subject = '📅 New Service Booking - ' . $service;
+    
+    $email_body = "
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #b646ff, #ff3fb3); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .header h1 { margin: 0; font-size: 24px; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .field { margin-bottom: 20px; }
+        .label { font-weight: bold; color: #b646ff; margin-bottom: 5px; display: block; }
+        .value { background: white; padding: 10px; border-radius: 5px; border-left: 3px solid #b646ff; }
+        .footer { text-align: center; margin-top: 20px; padding: 20px; color: #666; font-size: 12px; }
+        .highlight { background: #fff3cd; padding: 10px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #ffc107; }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <h1>📅 New Service Booking</h1>
+            <p style='margin: 10px 0 0 0; opacity: 0.9;'>Premier Family Salon & Hair Spa</p>
+        </div>
+        <div class='content'>
+            <div class='highlight'>
+                <strong>Service Requested:</strong> " . htmlspecialchars($service) . "
+            </div>
+
+            <div class='field'>
+                <span class='label'>👤 Client Name</span>
+                <div class='value'>" . htmlspecialchars($name) . "</div>
+            </div>
+
+            <div class='field'>
+                <span class='label'>📧 Email Address</span>
+                <div class='value'><a href='mailto:" . htmlspecialchars($email) . "'>" . htmlspecialchars($email) . "</a></div>
+            </div>
+
+            <div class='field'>
+                <span class='label'>📱 Phone Number</span>
+                <div class='value'><a href='tel:" . htmlspecialchars($phone) . "'>" . htmlspecialchars($phone) . "</a></div>
+            </div>
+
+            <div class='field'>
+                <span class='label'>📆 Preferred Date</span>
+                <div class='value'>" . htmlspecialchars($appointment_date) . "</div>
+            </div>
+
+            " . ($appointment_time ? "<div class='field'>
+                <span class='label'>🕐 Preferred Time</span>
+                <div class='value'>" . htmlspecialchars($appointment_time) . "</div>
+            </div>" : "") . "
+
+            " . ($message ? "<div class='field'>
+                <span class='label'>💬 Special Requests</span>
+                <div class='value'>" . nl2br(htmlspecialchars($message)) . "</div>
+            </div>" : "") . "
+
+            <div class='field'>
+                <span class='label'>📅 Booking Submitted</span>
+                <div class='value'>" . $timestamp . "</div>
+            </div>
+
+            <div class='field'>
+                <span class='label'>🌐 IP Address</span>
+                <div class='value'>" . $ip . "</div>
+            </div>
+        </div>
+        <div class='footer'>
+            <p>This booking was submitted through the Premier Family Salon website.</p>
+            <p>Please confirm the appointment with the client within 24 hours.</p>
+        </div>
+    </div>
+</body>
+</html>
+    ";
 }
 
-if ($errors) {
-    // Graceful fallback: if JS form expects HTML redirect, show list
-    if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false) {
-        respond_json('error', 'Validation failed', ['errors' => $errors]);
-    } else {
-        echo '<!DOCTYPE html><html><body><h2>There were issues:</h2><ul>';
-        foreach ($errors as $e) echo '<li>' . htmlspecialchars($e) . '</li>';
-        echo '</ul><p><a href="contact.html">Go back</a></p></body></html>';
-        exit;
-    }
-}
+// Send email with HTML content
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+$headers .= "From: " . $FROM_NAME . " <" . $FROM_EMAIL . ">\r\n";
+$headers .= "Reply-To: " . $email . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion();
 
-// Compose email
-$subject = $SUBJECT_PREFIX . $service . ' - ' . $name;
-$body = "Booking Request\n=================\n" .
-        "Name: $name\n" .
-        "Phone: $phone\n" .
-        "Email: $email\n" .
-        "Service: $service\n" .
-        "Preferred Date: $appointment_date\n" .
-        "Preferred Time: $appointment_time\n" .
-        "Message: $message\n\n" .
-        "Meta: IP=$ip UA=$ua\n";
-$headers = [
-    'From: noreply@premiersalon.example', // update with SPF-safe domain
-    'Reply-To: ' . $email,
-    'X-Mailer: PHP/' . phpversion(),
-    'Content-Type: text/plain; charset=UTF-8'
-];
+// Log email attempt for debugging
+error_log("Attempting to send email to: " . $TO_EMAIL . " | Subject: " . $email_subject);
 
-$mailSent = @mail($TO_EMAIL, $subject, $body, implode("\r\n", $headers));
+$email_sent = mail($TO_EMAIL, $email_subject, $email_body, $headers);
 
-if (!$mailSent) {
-    $failMsg = 'Could not send email at this time.';
-    if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false) {
-        respond_json('error', $failMsg);
-    } else {
-        echo '<!DOCTYPE html><html><body><h2>' . htmlspecialchars($failMsg) . '</h2><p>Please call us directly.</p><p><a href="contact.html">Back</a></p></body></html>';
-        exit;
-    }
-}
-
-// Success
-if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false) {
-    respond_json('ok', 'Booking request received. We will confirm shortly.');
+if ($email_sent) {
+    $success_message = $form_type === 'career_application' 
+        ? 'Thank you for your application! We will contact you within 24 hours to discuss your enrollment.'
+        : 'Booking request received! We will confirm your appointment within 24 hours.';
+    
+    error_log("Email sent successfully: " . $email_subject);
+    respond_json('success', $success_message);
 } else {
-    echo '<!DOCTYPE html><html><body><h2>Thank you!</h2><p>Your booking request has been received. We will contact you to confirm.</p><p><a href="index.html">Return Home</a></p><a href="https://wa.me/9999" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:12px 15px;border-radius:50%;font-size:20px;text-decoration:none;line-height:1;box-shadow:0 4px 14px -4px rgba(0,0,0,.5);" aria-label="Chat on WhatsApp">W</a></body></html>';
+    error_log("Email send failed: " . $email_subject . " | Error: " . print_r(error_get_last(), true));
+    respond_json('error', 'Failed to send email. Please try again or contact us directly.');
 }
+?>

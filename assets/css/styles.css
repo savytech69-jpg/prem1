@@ -1534,6 +1534,152 @@ section#hair > .container, section#skin > .container, section#makeup > .containe
 @media print { .mobile-toggle, .nav-links, .hero-bg, .hero::before { display: none !important; } body { background: #fff; color: #000; } }
 
 /* ============================================
+   SUCCESS MODAL & NOTIFICATION STYLES
+   ============================================ */
+
+.success-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+.success-modal-content {
+  background: linear-gradient(185deg, #16161f, #0f0f13);
+  border: 2px solid #b646ff;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 20px 60px rgba(182, 70, 255, 0.3);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #b646ff, #ff3fb3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 3rem;
+  animation: scaleIn 0.5s ease;
+}
+
+.success-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #b646ff, #ff3fb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.success-close-btn {
+  background: linear-gradient(135deg, #b646ff, #ff3fb3);
+  color: white;
+  border: none;
+  padding: 0.875rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.success-close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(182, 70, 255, 0.4);
+}
+
+.error-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff3fb3, #b646ff);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(255, 63, 179, 0.4);
+  z-index: 10000;
+  animation: slideInRight 0.3s ease;
+  max-width: 400px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Form Loading States */
+button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================
+   END SUCCESS MODAL & NOTIFICATION STYLES
+   ============================================ */
+
+/* ============================================
    CAREERS PAGE STYLES
    ============================================ */
 
@@ -3462,4 +3608,41 @@ section#hair > .container, section#skin > .container, section#makeup > .containe
   .panel-header h2 {
     font-size: 1.5rem;
   }
+
+  /* Success Modal Responsive */
+  .success-modal-content {
+    width: 95%;
+    padding: 2rem 1.5rem;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .success-title {
+    font-size: 1.35rem;
+  }
+
+  .success-message {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .success-close-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  .error-notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
+
