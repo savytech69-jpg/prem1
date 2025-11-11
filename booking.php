@@ -3,7 +3,7 @@
 // Handles both service bookings and career applications
 
 // Configuration
-$TO_EMAIL = 'savytech69@gmail.com';
+$TO_EMAIL = 'premiersalontvm@gmail.com';
 $FROM_EMAIL = 'noreply@premiersalon.com';
 $FROM_NAME = 'Premier Family Salon';
 
